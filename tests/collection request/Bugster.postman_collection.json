@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "a67a42da-6efa-4de8-a6b2-0d4bbba8d093",
+		"name": "Bugster",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25174721"
+	},
+	"item": [
+		{
+			"name": "save events",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"events\": [\r\n    {\r\n      \"event\": \"$click\",\r\n      \"properties\": {\r\n        \"distinct_id\": \"user1\",\r\n        \"session_id\": \"session1\",\r\n        \"journey_id\": \"journey1\",\r\n        \"$current_url\": \"https://example.com\",\r\n        \"$host\": \"example.com\",\r\n        \"$pathname\": \"/home\",\r\n        \"$browser\": \"Chrome\",\r\n        \"$device\": \"Desktop\",\r\n        \"$screen_height\": 1080,\r\n        \"$screen_width\": 1920,\r\n        \"eventType\": \"click\",\r\n        \"elementType\": \"button\",\r\n        \"elementText\": \"Submit\",\r\n        \"elementAttributes\": {\r\n          \"class\": \"btn-primary\",\r\n          \"href\": \"/submit\"\r\n        },\r\n        \"timestamp\": \"2024-12-19T12:34:56.789Z\",\r\n        \"x\": 100,\r\n        \"y\": 200,\r\n        \"mouseButton\": 0,\r\n        \"ctrlKey\": false,\r\n        \"shiftKey\": false,\r\n        \"altKey\": false,\r\n        \"metaKey\": false\r\n      },\r\n      \"timestamp\": \"2024-12-19T12:34:56.789Z\"\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/events",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "stories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/stories",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"stories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "stories?session_id=session1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/stories?session_id=session1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"stories"
+					],
+					"query": [
+						{
+							"key": "session_id",
+							"value": "session1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/tests",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"tests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "events",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"events\": [\r\n    {\r\n      \"event\": \"$click\",\r\n      \"properties\": {\r\n        \"distinct_id\": \"user1\",\r\n        \"session_id\": \"session1\",\r\n        \"journey_id\": \"journey1\",\r\n        \"$current_url\": \"https://example.com\",\r\n        \"$host\": \"example.com\",\r\n        \"$pathname\": \"/home\",\r\n        \"$browser\": \"Chrome\",\r\n        \"$device\": \"Desktop\",\r\n        \"eventType\": \"click\",\r\n        \"elementType\": \"button\",\r\n        \"elementText\": \"Submit\",\r\n        \"elementAttributes\": {\r\n          \"class\": \"btn-primary\",\r\n          \"href\": \"/submit\"\r\n        },\r\n        \"timestamp\": \"2024-12-19T12:34:56.789Z\",\r\n        \"x\": 100,\r\n        \"y\": 200,\r\n        \"mouseButton\": 0,\r\n        \"ctrlKey\": false,\r\n        \"shiftKey\": false,\r\n        \"altKey\": false,\r\n        \"metaKey\": false\r\n      },\r\n      \"timestamp\": \"2024-12-19T12:34:56.789Z\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/events",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"events"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://127.0.0.1:8000/api/v1/events \\\r\n-H \"Content-Type: application/json\" \\\r\n-d '{\r\n  \"events\": [\r\n    {\r\n      \"event\": \"$click\",\r\n      \"properties\": {\r\n        \"distinct_id\": \"user1\",\r\n        \"session_id\": \"session1\",\r\n        \"journey_id\": \"journey1\",\r\n        \"$current_url\": \"https://example.com\",\r\n        \"$host\": \"example.com\",\r\n        \"$pathname\": \"/home\",\r\n        \"$browser\": \"Chrome\",\r\n        \"$device\": \"Desktop\",\r\n        \"eventType\": \"click\",\r\n        \"elementType\": \"button\",\r\n        \"elementText\": \"Submit\",\r\n        \"elementAttributes\": {\r\n          \"class\": \"btn-primary\",\r\n          \"href\": \"/submit\"\r\n        },\r\n        \"timestamp\": \"2024-12-19T12:34:56.789Z\",\r\n        \"x\": 100,\r\n        \"y\": 200,\r\n        \"mouseButton\": 0,\r\n        \"ctrlKey\": false,\r\n        \"shiftKey\": false,\r\n        \"altKey\": false,\r\n        \"metaKey\": false\r\n      },\r\n      \"timestamp\": \"2024-12-19T12:34:56.789Z\"\r\n    }\r\n  ]\r\n}'\r\n"
+			},
+			"response": []
+		}
+	]
+}
