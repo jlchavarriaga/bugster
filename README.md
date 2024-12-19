@@ -1,5 +1,5 @@
 # bugster
-Servicio para agrupar en historias de usuario eventos de interacción de usuario
+Servicio para agrupar en "historias de usuario" eventos de interacción de los clientes
 
 ## Instalación con entorno virtual
 
@@ -170,8 +170,6 @@ Servicio para agrupar en historias de usuario eventos de interacción de usuario
    Si todas las pruebas pasan, deberías ver un resultado similar:
    ```bash
    ======================== test session starts ========================
-   platform win32 -- Python 3.x.x, pytest-x.x.x, py-x.x.x
-   rootdir: /path/to/your/project
    collected 1 item
 
    tests/test_main.py .                                          [100%]
