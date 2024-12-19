@@ -2,27 +2,26 @@ from fastapi import FastAPI, HTTPException, Query
 from typing import List, Dict
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
-import os
-from models import EventList, Event
 import logging
+from models import EventList, Event
 from utils import generate_playwright_test
 
-# Configuración
+# Configuración de logging
 logging.basicConfig(level=logging.INFO, filename="app.log", format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
+
+# Cargar variables de entorno
 load_dotenv()
 
-
-app = FastAPI(title=os.getenv("APP_NAME", "FastAPI App"))
+app = FastAPI(title="Bugster API")
 
 # Almacenamiento en memoria
 event_store: List[Event] = []
 
-
 @app.post("/api/v1/events")
 async def post_events(event_list: EventList):
     try:
-        # Validación de duplicados
+        # Validación para evitar duplicados
         for event in event_list.events:
             if event not in event_store:
                 event_store.append(event)
@@ -31,12 +30,9 @@ async def post_events(event_list: EventList):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-
 @app.get("/api/v1/stories")
 async def get_stories(session_id: str = Query(None, description="Filter by session ID")) -> List[Dict]:
-
     try:
-
         # Filtrar eventos por session_id si se proporciona
         filtered_events = [
             event for event in event_store
@@ -97,13 +93,11 @@ async def get_tests(session_id: str = Query(None, description="Filter by session
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-
 @app.post("/api/v1/events")
 async def post_events(event_list: EventList):
     try:
         event_store.extend(event_list.events)
-        logger.info(f"Current event store: {event_store}")
         return {"message": "Events stored successfully", "count": len(event_list.events)}
     except Exception as e:
+        print(f"Error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
-

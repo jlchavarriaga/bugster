@@ -1,3 +1,8 @@
+
+
+from typing import Dict, List
+
+
 def generate_playwright_test(session_id: str, events: List[Dict]) -> str:
     """
     Genera un script de prueba en Playwright basado en los eventos de una historia.
